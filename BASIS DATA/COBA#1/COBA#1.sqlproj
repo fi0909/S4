@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="0.1.12-preview" />
+  <PropertyGroup>
+    <Name>COBA#1</Name>
+    <ProjectGuid>{558558EA-A270-4DAC-BF33-1521309BF20A}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.Dacpacs.Master">
+      <Version>160.0.0</Version>
+      <GeneratePathProperty>True</GeneratePathProperty>
+      <DatabaseVariableLiteralValue>USER</DatabaseVariableLiteralValue>
+    </PackageReference>
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+    <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
+  </Target>
+</Project>
